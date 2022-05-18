@@ -119,6 +119,7 @@ form {
   transition: border-bottom 200ms ease-in;
   order: 2;
   line-height: 2;
+  width: 100%;
 }
 
 .newList {
@@ -132,7 +133,7 @@ form {
 
 .newList::placeholder,
 .newItemInput::placeholder {
-  color: inherit;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .newList:focus::placeholder,
