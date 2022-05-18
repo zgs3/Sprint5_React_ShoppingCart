@@ -20,6 +20,22 @@ function Cart() {
     setItemValue('');
   }
 
+  const deleteItem = (id) => {
+    // const clearedItems = [...items].filter((item) => item.id !== id);
+    const clearedItems = items.filter((item) => item.id !== id);
+    setItems(clearedItems);
+  }
+
+  const checkItem = (id) => {
+    const filteredItems = items.map((item) => {
+      if (item.id === id) {
+        item.checked = !item.checked;
+      }
+      return item;
+    });
+    setItems(filteredItems);
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.itemsFull}>
@@ -27,7 +43,11 @@ function Cart() {
 
           {items.map((item) => (
             <div key={item.id} className={styles.item}>
-              <input type="checkbox" id={item.id} />
+              <input
+                type="checkbox"
+                id={item.id}
+                checked={item.checked}
+                onChange={() => checkItem(item.id)} />
               <label htmlFor={item.id}>
                 <span className={styles.customCheckbox}></span>
                 {item.name}
@@ -41,7 +61,8 @@ function Cart() {
                   <EditIcon />
                 </button>
                 <button
-                  className={styles.itemBtn}>
+                  className={styles.itemBtn}
+                  onClick={() => deleteItem(item.id)}>
                   <DeleteForeverIcon />
                 </button>
               </div>
