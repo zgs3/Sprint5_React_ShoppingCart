@@ -12,6 +12,13 @@ function Cart() {
   const [editValue, setEditValue] = useState('');
 
 
+  useEffect(() => {
+    const itemList = JSON.parse(localStorage.getItem('shopList'));
+    if (itemList !== []) {
+      setItems(itemList || []);
+    }
+  }, [])
+
   const submitForm = (e) => {
     e.preventDefault();
     const newItem = {
@@ -20,6 +27,7 @@ function Cart() {
       checked: false
     }
     setItems([...items, newItem]);
+    localStorage.setItem('shopList', JSON.stringify(items));
     setItemValue('');
   }
 
@@ -35,6 +43,7 @@ function Cart() {
       }
       return item;
     });
+    localStorage.setItem('shopList', JSON.stringify(filteredItems));
     setItems(filteredItems);
   }
 
@@ -46,6 +55,7 @@ function Cart() {
       return item;
     })
     setItems(updatedItems);
+    localStorage.setItem('shopList', JSON.stringify(updatedItems));
     setEditItem(null);
     setEditValue('');
   }
@@ -91,8 +101,6 @@ function Cart() {
                 </label>)
               }
 
-
-
               <div>
                 <button
                   className={styles.itemBtn}
@@ -110,9 +118,7 @@ function Cart() {
                 </button>
               </div>
             </div>
-          )
-          )}
-
+          ))}
         </ul>
 
         <form onSubmit={submitForm}>
