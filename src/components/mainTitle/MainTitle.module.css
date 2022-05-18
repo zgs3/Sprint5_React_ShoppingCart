@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  font-size: calc(5vw + 1rem);
+  align-items: center;
+  justify-content: center;
+  color: var(--yellow2);
+  margin-bottom: calc(1vh);
+}
+
+.icon {
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  margin-left: .5rem;
+}
+
+.icon svg {
+  font-size: calc(9vw + 1rem);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .icon svg {
+   animation: icon-spin infinite 28s linear;
+ }
+}
+
+@keyframes icon-spin {
+ from {
+   transform: rotate(0deg);
+ }
+ to {
+   transform: rotate(360deg);
+ }
+}

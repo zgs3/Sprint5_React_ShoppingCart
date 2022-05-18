@@ -1,8 +1,25 @@
-body {
+:root {
+  --orange: #df5917;
+  --white: #FFFFFF;
+  --yellow2: #F48C06;
+  --yellow1: #FAA307;
+  --yellowTransparent: #faa507e0;
+  --shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  --spacer: 2rem;
+}
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family:  'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

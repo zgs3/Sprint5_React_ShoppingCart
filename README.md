@@ -8,11 +8,11 @@ Development progress was tracked by submiting commits using Git CLI.
 
 ## Description
 
-Application is named "Shopping Cart+".
+Application is named "The Cart+".
 
 Main purpose of this application is to serve as a shopping list, but it can also be used for making other lists like a "To-do list" or any other list of item's or task's.
 
-"Shopping Cart+" is able to save items to browser local storage and load saved items after the browser was closed and opened.
+"The Cart+" is able to save items to browser local storage and load saved items after the browser was closed and opened.
 
 
 ## How to use the app?

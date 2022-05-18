@@ -1,0 +1,224 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 0 1rem;
+}
+
+.itemsFull {
+  background: var(--yellow2);
+  padding: var(--spacer);
+  box-shadow: var(--shadow);
+  min-width: 80%;
+}
+
+.itemsFull {
+  background: var(--yellow2);
+  padding: var(--spacer);
+}
+
+.itemList {
+  line-height: 2;
+  list-style: circle;
+}
+
+.item {
+  border-bottom: 2px solid var(--yellow1);
+  margin-bottom: .5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.item label {
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 2px solid var(--yellow2);
+}
+
+.customCheckbox {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  margin-right: .9rem;
+  transform: scale(1);
+  transition: transform 200ms ease-in;
+}
+
+[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.item:hover .customCheckbox,
+[type="checkbox"]:focus-visible + .customCheckbox {
+  transform: scale(1.2);
+}
+
+label:hover {
+  transition: .3s;
+  color: var(--white);
+  /* color: black; */
+}
+
+
+[type="checkbox"]:checked + label .customCheckbox {
+  background: var(--orange);
+  border: var(--orange);
+  box-shadow: 0 0 0px 2px;
+}
+
+[type="checkbox"]:checked + label {
+  opacity: .7;
+  text-decoration: line-through;
+}
+
+/* .itemName {
+  font-size: 2rem;
+  cursor: pointer;
+  transition: .3s;
+  margin-left: 2.5rem;
+}
+
+.itemNameActive {
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .3s;
+  margin-left: 2.5rem;
+} */
+
+/* .itemName:hover {
+  color: var(--white);
+  transition: .3s;
+}
+
+.itemNameActive:hover {
+  color: var(--white);
+  transition: .3s;
+} */
+
+form {
+  display: flex;
+  align-items: center;
+}
+
+.newList,
+.newItemInput {
+  font-size: 1.8em;
+  max-width: 90%;
+  padding-left: .5rem;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid var(--yellow2);
+  outline: none;
+  transition: border-bottom 200ms ease-in;
+  order: 2;
+  line-height: 2;
+}
+
+.newList {
+  border-color: var(--yellow1);
+}
+
+.newList:focus,
+.newItemInput:focus {
+  border-bottom-width: 4px;
+}
+
+.newList::placeholder,
+.newItemInput::placeholder {
+  color: inherit;
+}
+
+.newList:focus::placeholder,
+.newItemInput:focus::placeholder {
+  color: white;
+  opacity: .5;
+  transition: .2s;
+}
+
+.activeList {
+  font-weight: 700;
+}
+
+.activeList:hover {
+  opacity: 1;
+}
+
+.btn {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  color: inherit;
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-right: .5rem;
+  transition: .3s;
+}
+
+.btn:hover {
+  filter: invert();
+}
+
+.itemBtn {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  color: inherit;
+  margin-right: .8rem;
+  transition: .3s;
+}
+
+.itemBtn svg {
+  font-size: 2.8rem;
+}
+
+.itemBtn:hover {
+  filter: invert();
+}
+
+/* -------------------------------------------------------------- */
+
+.todoList {
+  background: var(--yellow1);
+  color: var(--white);
+  min-width: 31rem;
+}
+
+.todoHeader {
+  background: var(--yellow2);
+  padding: var(--spacer);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 7rem;
+}
+
+.listTitle {
+  font-size: 2rem;
+  margin: 0 .2rem 0 0;
+  color: black;
+}
+
+.taskCount {
+  font-size: 1.5rem;
+}
+
+.todoBody {
+  padding: var(--spacer);
+}
+
+.task label {
+  font-size: 1.8rem;
+  margin-bottom: .5rem;
+  padding-bottom: .5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 2px solid var(--yellow2);
+}

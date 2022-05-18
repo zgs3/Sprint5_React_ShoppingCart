@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 0 1rem;
+}
+
+.mainBlock {
+  background: var(--yellow1);
+  color: var(--white);
+  max-width: 65rem;
+}
+
+.tabHeader {
+  background: var(--yellow2);
+  padding: var(--spacer);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.blockTitle {
+  font-size: 2rem;
+  margin: 0 .2rem 0 0;
+  color: black;
+}
+
+.block {
+  padding: var(--spacer);
+}
+
+p {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  text-align: justify;
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--yellow2);
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
