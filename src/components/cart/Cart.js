@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react'
 import styles from './Cart.module.css'
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import DoneIcon from '@material-ui/icons/Done';
 
 function Cart() {
 
   const [itemValue, setItemValue] = useState('');
   const [items, setItems] = useState([]);
+  const [editItem, setEditItem] = useState(null);
+  const [editValue, setEditValue] = useState('');
 
 
   const submitForm = (e) => {
@@ -21,7 +24,6 @@ function Cart() {
   }
 
   const deleteItem = (id) => {
-    // const clearedItems = [...items].filter((item) => item.id !== id);
     const clearedItems = items.filter((item) => item.id !== id);
     setItems(clearedItems);
   }
@@ -36,6 +38,19 @@ function Cart() {
     setItems(filteredItems);
   }
 
+  const itemEditor = (id) => {
+    const updatedItems = items.map((item) => {
+      if (item.id === id) {
+        item.name = editValue;
+      }
+      return item;
+    })
+    setItems(updatedItems);
+    setEditItem(null);
+    setEditValue('');
+  }
+
+
   return (
     <div className={styles.container}>
       <div className={styles.itemsFull}>
@@ -47,22 +62,50 @@ function Cart() {
                 type="checkbox"
                 id={item.id}
                 checked={item.checked}
-                onChange={() => checkItem(item.id)} />
-              <label htmlFor={item.id}>
-                <span className={styles.customCheckbox}></span>
-                {item.name}
-              </label>
+                onChange={() => checkItem(item.id)}
+              />
+
+              {editItem === item.id &&
+                (<div>
+                  <form onSubmit={(e) => {
+                    e.preventDefault();
+                    itemEditor(item.id)
+                  }}>
+                    <input
+                      className={styles.editInput}
+                      type='text'
+                      onChange={(e) => setEditValue(e.target.value)}
+                      value={editValue}
+                      onSubmit={() => itemEditor(item.id)}
+                    >
+                    </input>
+                    <button type='submit' className={styles.itemBtn}>
+                      <DoneIcon />
+                    </button>
+                  </form>
+                </div>)
+                ||
+                (<label htmlFor={item.id}>
+                  <span className={styles.customCheckbox}></span>
+                  {item.name}
+                </label>)
+              }
+
+
+
               <div>
                 <button
                   className={styles.itemBtn}
                   onClick={(e) => {
-                    console.log(e.target);
-                  }} >
+                    setEditItem(item.id);
+                  }}
+                >
                   <EditIcon />
                 </button>
                 <button
                   className={styles.itemBtn}
-                  onClick={() => deleteItem(item.id)}>
+                  onClick={() => deleteItem(item.id)}
+                >
                   <DeleteForeverIcon />
                 </button>
               </div>

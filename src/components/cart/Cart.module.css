@@ -183,43 +183,17 @@ form {
   filter: invert();
 }
 
-/* -------------------------------------------------------------- */
-
-.todoList {
-  background: var(--yellow1);
-  color: var(--white);
-  min-width: 31rem;
+.editInput {
+  font-size: 1.8em;
+  max-width: 90%;
+  padding-left: .5rem;
+  background: var(--lightYellow);
+  line-height: 1.5;
+  width: 100%;
+  order: 2;
+  border-color: var(--yellow2);
 }
 
-.todoHeader {
-  background: var(--yellow2);
-  padding: var(--spacer);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 7rem;
-}
-
-.listTitle {
-  font-size: 2rem;
-  margin: 0 .2rem 0 0;
-  color: black;
-}
-
-.taskCount {
-  font-size: 1.5rem;
-}
-
-.todoBody {
-  padding: var(--spacer);
-}
-
-.task label {
-  font-size: 1.8rem;
-  margin-bottom: .5rem;
-  padding-bottom: .5rem;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  border-bottom: 2px solid var(--yellow2);
+.editInput:focus {
+  outline: 0;
 }
