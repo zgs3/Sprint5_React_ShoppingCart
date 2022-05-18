@@ -3,14 +3,14 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
-  margin: 0 1rem;
+  margin: 0 auto;
 }
 
 .itemsFull {
   background: var(--yellow2);
   padding: var(--spacer);
   box-shadow: var(--shadow);
-  min-width: 80%;
+  min-width: 50%;
 }
 
 .itemsFull {
@@ -27,11 +27,12 @@
   border-bottom: 2px solid var(--yellow1);
   margin-bottom: .5rem;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: space-between;
 }
 
 .item label {
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -55,52 +56,26 @@
 }
 
 .item:hover .customCheckbox,
-[type="checkbox"]:focus-visible + .customCheckbox {
+[type="checkbox"]:focus-visible+.customCheckbox {
   transform: scale(1.2);
 }
 
 label:hover {
   transition: .3s;
   color: var(--white);
-  /* color: black; */
 }
 
 
-[type="checkbox"]:checked + label .customCheckbox {
+[type="checkbox"]:checked+label .customCheckbox {
   background: var(--orange);
   border: var(--orange);
   box-shadow: 0 0 0px 2px;
 }
 
-[type="checkbox"]:checked + label {
-  opacity: .7;
+[type="checkbox"]:checked+label {
+  opacity: .6;
   text-decoration: line-through;
 }
-
-/* .itemName {
-  font-size: 2rem;
-  cursor: pointer;
-  transition: .3s;
-  margin-left: 2.5rem;
-}
-
-.itemNameActive {
-  font-size: 2rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: .3s;
-  margin-left: 2.5rem;
-} */
-
-/* .itemName:hover {
-  color: var(--white);
-  transition: .3s;
-}
-
-.itemNameActive:hover {
-  color: var(--white);
-  transition: .3s;
-} */
 
 form {
   display: flex;
@@ -196,4 +171,25 @@ form {
 
 .editInput:focus {
   outline: 0;
+}
+
+.btnBlock {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+@media screen and (max-width: 968px) {
+  .itemsFull {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 569px) {
+  .itemsFull {
+    width: 90%;
+  }
+
+  .item label {
+    font-size: 1.65rem;
+  }
 }

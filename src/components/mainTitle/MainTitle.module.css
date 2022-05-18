@@ -4,6 +4,8 @@
   align-items: center;
   justify-content: center;
   color: var(--yellow2);
+  text-shadow: var(--shadow);
+  letter-spacing: .8rem;
   margin-bottom: calc(1vh);
 }
 

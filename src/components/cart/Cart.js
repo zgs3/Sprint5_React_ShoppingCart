@@ -101,7 +101,7 @@ function Cart() {
                 </label>)
               }
 
-              <div>
+              <div className={styles.btnBlock}>
                 <button
                   className={styles.itemBtn}
                   onClick={(e) => {

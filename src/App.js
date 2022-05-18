@@ -2,9 +2,8 @@ import Header from './components/header/Header';
 import Cart from './components/cart/Cart';
 import MainTitle from './components/mainTitle/MainTitle';
 import About from './components/about/About';
+import ErrorPage from './components/errorPage/ErrorPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
-
 
 function App() {
   return (
@@ -12,6 +11,7 @@ function App() {
       <Header />
       <MainTitle />
       <Routes>
+        <Route path='/*' element={<ErrorPage />} />
         <Route path='/' element={<Cart />} />
         <Route path='/thecart' element={<Cart />} />
         <Route path='/about' element={<About />} />
