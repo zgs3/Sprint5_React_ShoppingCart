@@ -71,13 +71,36 @@ function Cart() {
       setEditItem(null);
       setEditValue('');
     }
-
   }
 
+  const deleteAll = () => {
+    localStorage.setItem('shopList', JSON.stringify([]));
+    setItems([]);
+    setItemValue('');
+  }
 
   return (
     <div className={styles.container}>
       <div className={styles.itemsFull}>
+        <div className={styles.upperBlock}>
+          <form onSubmit={submitForm}>
+            <input
+              type="text"
+              className={styles.newList}
+              placeholder={inputMsg}
+              onChange={(e) => { setItemValue(e.target.value) }}
+              value={itemValue}
+              maxLength='25'
+            />
+            <button className={styles.btn}>+</button>
+          </form>
+          <div>
+            <button onClick={deleteAll} className={styles.deleteAllBtn}>
+              DELETE ALL ITEMS
+            </button>
+          </div>
+        </div>
+
         <ul className={styles.itemList}>
 
           {items.map((item) => (
@@ -137,19 +160,8 @@ function Cart() {
               </div>
             </div>
           ))}
-        </ul>
 
-        <form onSubmit={submitForm}>
-          <input
-            type="text"
-            className={styles.newList}
-            placeholder={inputMsg}
-            onChange={(e) => { setItemValue(e.target.value) }}
-            value={itemValue}
-            maxLength='25'
-          />
-          <button className={styles.btn}>+</button>
-        </form>
+        </ul>
       </div>
     </div>
   )

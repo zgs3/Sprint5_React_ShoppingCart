@@ -13,9 +13,32 @@
   min-width: 50%;
 }
 
-.itemsFull {
+.upperBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  border: 2px inset var(--yellow1);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background: var(--yellow1);
+}
+
+.deleteAllBtn {
   background: var(--yellow2);
-  padding: var(--spacer);
+  border: 2px inset var(--yellow2);
+  padding: .6rem .6rem;
+  opacity: .85;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  float: right;
+}
+
+.deleteAllBtn:hover {
+  color: var(--white);
+  transition: .3s;
+  background: var(--yellow1);
 }
 
 .itemList {
@@ -65,7 +88,6 @@ label:hover {
   color: var(--white);
 }
 
-
 [type="checkbox"]:checked+label .customCheckbox {
   background: var(--orange);
   border: var(--orange);
@@ -80,11 +102,10 @@ label:hover {
 form {
   display: flex;
   align-items: center;
-  margin-top: 2.5rem;
+  flex: 1;
 }
 
-.newList,
-.newItemInput {
+.newList {
   font-size: 1.8em;
   max-width: 90%;
   padding-left: .5rem;
@@ -99,22 +120,19 @@ form {
 }
 
 .newList {
-  border-color: var(--yellow1);
+  border-color: var(--yellow2);
 }
 
-.newList:focus,
-.newItemInput:focus {
+.newList:focus {
   border-bottom-width: 4px;
 }
 
 .newList::placeholder,
-.newItemInput::placeholder,
 .editForm input::placeholder {
   color: rgba(0, 0, 0, 0.5);
 }
 
 .newList:focus::placeholder,
-.newItemInput:focus::placeholder,
 .editForm input:focus::placeholder {
   color: white;
   opacity: .5;
