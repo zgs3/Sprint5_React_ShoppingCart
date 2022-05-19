@@ -80,6 +80,7 @@ label:hover {
 form {
   display: flex;
   align-items: center;
+  margin-top: 2.5rem;
 }
 
 .newList,
@@ -107,12 +108,14 @@ form {
 }
 
 .newList::placeholder,
-.newItemInput::placeholder {
+.newItemInput::placeholder,
+.editForm input::placeholder {
   color: rgba(0, 0, 0, 0.5);
 }
 
 .newList:focus::placeholder,
-.newItemInput:focus::placeholder {
+.newItemInput:focus::placeholder,
+.editForm input:focus::placeholder {
   color: white;
   opacity: .5;
   transition: .2s;
@@ -176,6 +179,10 @@ form {
 .btnBlock {
   display: flex;
   flex-wrap: nowrap;
+}
+
+.editForm {
+  margin: 0 0 .5rem 0;
 }
 
 @media screen and (max-width: 968px) {

@@ -10,6 +10,8 @@ function Cart() {
   const [items, setItems] = useState([]);
   const [editItem, setEditItem] = useState(null);
   const [editValue, setEditValue] = useState('');
+  const [inputMsg, setInputMsg] = useState('New item');
+  const [editInputMsg, setEditInputMsg] = useState('New item name');
 
 
   useEffect(() => {
@@ -21,18 +23,24 @@ function Cart() {
 
   const submitForm = (e) => {
     e.preventDefault();
-    const newItem = {
-      id: Date.now().toString(),
-      name: itemValue,
-      checked: false
+    if (itemValue === '') {
+      setInputMsg('Please enter item name first');
+    } else {
+      setInputMsg('New item');
+      const newItem = {
+        id: Date.now().toString(),
+        name: itemValue,
+        checked: false
+      }
+      setItems([...items, newItem]);
+      localStorage.setItem('shopList', JSON.stringify(items));
+      setItemValue('');
     }
-    setItems([...items, newItem]);
-    localStorage.setItem('shopList', JSON.stringify(items));
-    setItemValue('');
   }
 
   const deleteItem = (id) => {
     const clearedItems = items.filter((item) => item.id !== id);
+    localStorage.setItem('shopList', JSON.stringify(clearedItems));
     setItems(clearedItems);
   }
 
@@ -48,16 +56,22 @@ function Cart() {
   }
 
   const itemEditor = (id) => {
-    const updatedItems = items.map((item) => {
-      if (item.id === id) {
-        item.name = editValue;
-      }
-      return item;
-    })
-    setItems(updatedItems);
-    localStorage.setItem('shopList', JSON.stringify(updatedItems));
-    setEditItem(null);
-    setEditValue('');
+    if (editValue === '') {
+      setEditInputMsg('Enter item name first')
+    } else {
+      setEditInputMsg('New item name')
+      const updatedItems = items.map((item) => {
+        if (item.id === id) {
+          item.name = editValue;
+        }
+        return item;
+      })
+      setItems(updatedItems);
+      localStorage.setItem('shopList', JSON.stringify(updatedItems));
+      setEditItem(null);
+      setEditValue('');
+    }
+
   }
 
 
@@ -77,16 +91,20 @@ function Cart() {
 
               {editItem === item.id &&
                 (<div>
-                  <form onSubmit={(e) => {
-                    e.preventDefault();
-                    itemEditor(item.id)
-                  }}>
+                  <form
+                    className={styles.editForm}
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      itemEditor(item.id)
+                    }}>
                     <input
                       className={styles.editInput}
                       type='text'
                       onChange={(e) => setEditValue(e.target.value)}
                       value={editValue}
                       onSubmit={() => itemEditor(item.id)}
+                      placeholder={editInputMsg}
+                      maxLength='25'
                     >
                     </input>
                     <button type='submit' className={styles.itemBtn}>
@@ -125,9 +143,10 @@ function Cart() {
           <input
             type="text"
             className={styles.newList}
-            placeholder="New item"
+            placeholder={inputMsg}
             onChange={(e) => { setItemValue(e.target.value) }}
             value={itemValue}
+            maxLength='25'
           />
           <button className={styles.btn}>+</button>
         </form>
