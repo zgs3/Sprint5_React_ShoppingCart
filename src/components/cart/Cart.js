@@ -19,7 +19,7 @@ function Cart() {
       setItems(itemList || []);
     }
   }, [])
-
+  
   const submitForm = (e) => {
     e.preventDefault();
     if (itemValue === '') {
@@ -31,7 +31,8 @@ function Cart() {
         name: itemValue,
         checked: false
       }
-      setItems([...items, newItem]);
+      items.push(newItem)
+      setItems(items);
       localStorage.setItem('shopList', JSON.stringify(items));
       setItemValue('');
     }
