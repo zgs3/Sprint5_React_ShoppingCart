@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import styles from './Cart.module.css'
+import React, { useState, useEffect } from 'react';
+import styles from './Cart.module.css';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import DoneIcon from '@material-ui/icons/Done';
@@ -10,10 +10,9 @@ function Cart() {
   const [items, setItems] = useState([]);
   const [editItem, setEditItem] = useState(null);
   const [editValue, setEditValue] = useState('');
-  const [inputMsg, setInputMsg] = useState('New item');
+  const [inputMsg, setInputMsg] = useState('Add new item');
   const [editInputMsg, setEditInputMsg] = useState('New item name');
-
-
+  
   useEffect(() => {
     const itemList = JSON.parse(localStorage.getItem('shopList'));
     if (itemList !== []) {
@@ -96,11 +95,10 @@ function Cart() {
           </form>
           <div>
             <button onClick={deleteAll} className={styles.deleteAllBtn}>
-              DELETE ALL ITEMS
+              DELETE ITEMS
             </button>
           </div>
         </div>
-
         <ul className={styles.itemList}>
 
           {items.map((item) => (

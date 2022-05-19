@@ -3,11 +3,11 @@ import Cart from './components/cart/Cart';
 import MainTitle from './components/mainTitle/MainTitle';
 import About from './components/about/About';
 import ErrorPage from './components/errorPage/ErrorPage';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Header />
       <MainTitle />
       <Routes>
@@ -16,7 +16,7 @@ function App() {
         <Route path='/thecart' element={<Cart />} />
         <Route path='/about' element={<About />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

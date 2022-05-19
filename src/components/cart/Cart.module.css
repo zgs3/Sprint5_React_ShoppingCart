@@ -129,7 +129,7 @@ form {
 
 .newList::placeholder,
 .editForm input::placeholder {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .newList:focus::placeholder,
@@ -216,5 +216,10 @@ form {
 
   .item label {
     font-size: 1.65rem;
+  }
+
+  .deleteAllBtn {
+    font-size: 1.1rem;
+    padding: .8rem .2rem;
   }
 }
